@@ -141,7 +141,7 @@ nav a:hover {
 
 .d-block {
   width: 100%;
-  max-height: 300PX;
+  max-height: 300px;
   /* limita la altura máxima */
   object-fit: cover;
   /* o "contain" para mantener las proporciones */
