@@ -241,9 +241,9 @@ nav a:hover {
 .art-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-
   gap: 1.5rem;
-  
+  max-width: 1200px; /* Ajusta este valor según tus necesidades */
+  margin: 0 auto;
 }
 
 .art-item {
