@@ -609,6 +609,10 @@ footer {
     padding: 0.5rem 1rem;
   }
 
+  body {
+    padding-top: 185px; /* Ajusta este valor a la altura real de tu header */
+  }
+
   /* Cuando se agregue la clase .hide, el header se desliza hacia arriba */
   header.hide {
     transform: translateY(-100%);
