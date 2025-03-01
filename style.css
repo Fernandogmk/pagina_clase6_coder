@@ -196,9 +196,15 @@ nav a:hover {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.banner-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+.banner-content {
+  position: absolute;
+  bottom: 10px; /* Ajusta el margen inferior según lo necesites */
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+  z-index: 3;
 }
 
 .banner-content a {
@@ -625,7 +631,7 @@ footer {
 
   /* Ajustes en el banner para pantallas pequeñas */
   .banner {
-    height: 30vh;
+    height: 60vh;
   }
 
   .banner-content h1 {
