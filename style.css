@@ -307,7 +307,7 @@ nav a:hover {
 }
 
 
-/* IMÁGENES GLOBALES */
+/* IMÁGENES GLOBALES _del proyecto*/
 img {
   width: var(--img-width, 100%);
   height: var(--img-height, auto);
