@@ -631,7 +631,7 @@ footer {
 
   /* Ajustes en el banner para pantallas pequeñas */
   .banner {
-    height: 60vh;
+    height: 50vh;
   }
 
   .banner-content h1 {
