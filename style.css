@@ -668,7 +668,7 @@ footer {
     width: 100%;
   }
   
-  /* Hacemos que los <ul> no generen su propia caja */
+  /* Hacemos que los <ul> no generen su propia caja . */
   .nav-center,
   .nav-right {
     display: contents;
