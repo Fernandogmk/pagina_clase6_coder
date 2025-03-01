@@ -664,7 +664,7 @@ footer {
     display: contents;
   }
 
-  /* Opcional: centrar el contenido de cada li */
+  /* Centrar el contenido de cada li */
   nav li {
     text-align: center;
   }
