@@ -612,6 +612,7 @@ footer {
 
 
   nav {
+    display: flex; /* Asegúrate de que nav siga siendo flex */
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -647,5 +648,26 @@ footer {
     /*ajuste del footer uno abajo del otro*/
   }
 
-
 }
+
+@media (max-width: 400px) {
+  nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.1rem; /* Espacio entre los elementos */
+    width: 100%;
+  }
+  
+  /* Hacemos que los <ul> no generen su propia caja */
+  .nav-center,
+  .nav-right {
+    display: contents;
+  }
+
+  /* Opcional: centrar el contenido de cada li */
+  nav li {
+    text-align: center;
+  }
+}
+
+
