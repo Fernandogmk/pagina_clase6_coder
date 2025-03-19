@@ -8,7 +8,7 @@
 a {
   text-decoration: none;
 }
-/*/*/                         /*/*/
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #fff;
@@ -141,7 +141,7 @@ nav a:hover {
 
 .d-block {
   width: 100%;
-  max-height: 300PX;
+  max-height: 300px;
   /* limita la altura máxima */
   object-fit: cover;
   /* o "contain" para mantener las proporciones */
@@ -154,7 +154,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30vh; /* Altura del banner */
+  height: 75vh; /* Altura del banner */
   overflow: hidden; /* Para asegurar que el video no se desborde */
 }
 
@@ -164,7 +164,7 @@ nav a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 300px;
+  height: 75vh;
   object-fit: cover; /* Hace que el video se recorte de manera adecuada */
   z-index: 1; /* Para que aparezca detrás del contenido */
 }
@@ -196,9 +196,15 @@ nav a:hover {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.banner-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+.banner-content {
+  position: absolute;
+  bottom: 10px; /* Ajusta el margen inferior según lo necesites */
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+  z-index: 3;
 }
 
 .banner-content a {
@@ -216,7 +222,7 @@ nav a:hover {
   background-color: #e55a00;
 }
 
-/* GALERÍA DE ARTE */
+/* GALERÍA DE ARTE - cuadros */
 .art-gallery {
   padding: 2rem 1rem;
   background-color: #fafafa;
@@ -226,6 +232,7 @@ nav a:hover {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2rem;
+  font-weight: 700;   /* 700 es equivalente a 'bold' de word */
   color: #333;
 }
 
@@ -234,26 +241,21 @@ nav a:hover {
 .art-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  /*los px modifican el tamaño de las imagenes*/
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 1200px; /* Ajusta este valor según tus necesidades */
   margin: 0 auto;
 }
 
 .art-item {
-  background: #fff;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.art-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 400px; /* Al menos 400px */
 }
 
 .art-item img {
+  width: 100%;
+  height: auto;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -264,9 +266,12 @@ nav a:hover {
 
 .art-item h3 {
   text-align: center;
-  padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.2rem;   /* Ajusta el tamaño a tu gusto */
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
+  padding: 10px;
   background-color: #fff;
+  color: #030303;
+  margin: 0;
 }
 
 /* TITULO OBRAS DESTACADAS*/
@@ -275,6 +280,7 @@ nav a:hover {
   text-align: center;        /* Centra el texto */
   margin-bottom: 1rem;
   font-size: 2rem;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
   position: relative;        /* Necesario para usar position:absolute en ::after */
 }
@@ -285,7 +291,7 @@ nav a:hover {
   left: 50%;                 /* La pseudo-línea inicia en la mitad del elemento */
   bottom: -5px;              /* Ubícala justo debajo del texto */
   width: 300px;
-  height: 3px;
+  height: 1.5px;
   background-color: #000;
   transform: translateX(-50%); /* Ajuste para centrarla exactamente */
 }
@@ -294,13 +300,14 @@ nav a:hover {
 /* TITULO PAGINA INGRESAR*/
 .ingresar h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  padding: 1rem;
   font-size: 2rem;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
 
-/* IMÁGENES GLOBALES */
+/* IMÁGENES GLOBALES _del proyecto*/
 img {
   width: var(--img-width, 100%);
   height: var(--img-height, auto);
@@ -333,6 +340,7 @@ img {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
@@ -397,6 +405,7 @@ img {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
@@ -460,6 +469,7 @@ img {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
@@ -592,40 +602,51 @@ footer {
 
 @media (max-width: 800px) {
   header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    /* Tus estilos existentes */
     flex-direction: column;
     align-items: center;
     padding: 0.5rem 1rem;
   }
 
-  /* Imagen del logo */
-  .logo-img {
-    width: 60px;
-    /* Tamaño del logo */
-    height: auto;
+  body {
+    padding-top: 185px; /* Ajusta este valor a la altura real de tu header */
   }
 
+  /* Cuando se agregue la clase .hide, el header se desliza hacia arriba */
+  header.hide {
+    transform: translateY(-100%);
+  }
 
+  /* Resto de tus estilos para móviles */
+  .logo-img {
+    width: 60px;
+    height: auto;
+  }
   nav {
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-top: 0.5rem;
   }
-
   .nav-center,
   .nav-right {
     width: 100%;
     justify-content: center;
     margin: 0.5rem 0;
   }
-
   nav li {
     margin: 0 0.5rem;
   }
 
   /* Ajustes en el banner para pantallas pequeñas */
   .banner {
-    height: 30vh;
+    height: 50vh;
   }
 
   .banner-content h1 {
@@ -641,5 +662,26 @@ footer {
     /*ajuste del footer uno abajo del otro*/
   }
 
-
 }
+
+@media (max-width: 400px) {
+  nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.1rem; /* Espacio entre los elementos */
+    width: 100%;
+  }
+  
+  /* Hacemos que los <ul> no generen su propia caja . */
+  .nav-center,
+  .nav-right {
+    display: contents;
+  }
+
+  /* Centrar el contenido de cada li */
+  nav li {
+    text-align: center;
+  }
+}
+
+
