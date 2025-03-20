@@ -40,13 +40,13 @@
       color: #333;
   
       &-img {
-        width: 120px; // tamaño del logo
+        width: 100px; // tamaño del logo
         height: auto;
       }
   
       &-text {
         text-align: center; // centra el texto
-        margin-top: 0.5rem; // espacio en la horizontal entre imagen y texto
+        margin-top: 0.5rem; // espacio entre imagen y texto
         display: flex;
         flex-direction: column;
         gap: 0.1px;
@@ -130,18 +130,6 @@
       object-fit: cover; // video se recorta de manera adecuada
       z-index: 1; // aparece detrás del contenido
     }
-  
-    // Si deseas utilizar la capa overlay, descomenta el siguiente bloque:
-    // .banner-overlay {
-    //   content: "";
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   right: 0;
-    //   bottom: 0;
-    //   background-color: rgba(61, 34, 49, 0.7);
-    //   z-index: 2; // capa por encima del video
-    // }
   
     .banner-content {
       position: absolute;
@@ -463,8 +451,8 @@
     }
   }
   
-/* FOOTER */
-footer {
+  /* FOOTER */
+  footer {
     background: linear-gradient(45deg, #444, #222);
     color: #fff;
     padding: 1rem 1.5rem;
@@ -536,7 +524,7 @@ footer {
       .footer-section:nth-child(2) {
         grid-row: 1;
       }
-    
+  
       .footer-section:nth-child(3),
       .footer-section:nth-child(4) {
         grid-row: 2;
@@ -566,9 +554,9 @@ footer {
       }
     }
   }
-
-  /* MEDIA QUERIES PARA HEADER Y NAV */
-@media (max-width: 1000px) {
+  
+  /* Media query para pantallas menores a 1000px */
+  @media (max-width: 1000px) {
     header {
       position: fixed;
       top: 0;
@@ -592,7 +580,7 @@ footer {
       width: 60px;
       height: auto;
     }
-    
+  
     nav {
       display: flex;
       flex-direction: column;
@@ -607,11 +595,11 @@ footer {
         margin: 0.5rem 0;
       }
     }
-    
+  
     .banner {
       height: 50vh;
     }
-    
+  
     .banner-content {
       h1 {
         font-size: 1.8rem;
@@ -621,7 +609,8 @@ footer {
       }
     }
   }
-
+  
+  /* Media query para pantallas menores a 400px */
   @media (max-width: 400px) {
     nav {
       display: grid;
@@ -642,3 +631,4 @@ footer {
       }
     }
   }
+  

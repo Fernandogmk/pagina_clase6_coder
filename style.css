@@ -39,7 +39,7 @@ header .logo {
   color: #333;
 }
 header .logo-img {
-  width: 120px;
+  width: 100px;
   height: auto;
 }
 header .logo-text {
@@ -493,7 +493,7 @@ footer .footer-bottom {
     grid-row: auto;
   }
 }
-/* MEDIA QUERIES PARA HEADER Y NAV */
+/* Media query para pantallas menores a 1000px */
 @media (max-width: 1000px) {
   header {
     position: fixed;
@@ -538,6 +538,7 @@ footer .footer-bottom {
     font-size: 1rem;
   }
 }
+/* Media query para pantallas menores a 400px */
 @media (max-width: 400px) {
   nav {
     display: grid;
