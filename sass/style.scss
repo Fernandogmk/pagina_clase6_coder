@@ -1,0 +1,644 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    // color de fondo de página
+    color: #333333; // color de letras de nombre de cada obra
+    line-height: 1.5; // separación entre textos o líneas del body
+  }
+  
+  /* HEADER */
+  header {
+    display: flex;
+    // ajusta las posiciones de la lista en el header
+    align-items: center; // centra el listado en el contenedor
+    justify-content: space-between;
+    padding: 0.5rem 2rem; // con el primer valor se varía la altura de la barra del header
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky; // se comporta de forma “relativa” hasta que se cumple la condición de scroll indicada por top 0
+    top: 0; // header queda pegado a la parte superior
+    z-index: 100; // indica la capa en la que se encuentra el elemento
+  
+    .logo {
+      display: flex;
+      flex-direction: row; // imagen a la izquierda y texto a la derecha
+      align-items: center;
+      gap: 20px; // espacio entre imagen y texto
+      font-weight: 150;
+      font-size: 1.8rem;
+      color: #333;
+  
+      &-img {
+        width: 120px; // tamaño del logo
+        height: auto;
+      }
+  
+      &-text {
+        text-align: center; // centra el texto
+        margin-top: 0.5rem; // espacio en la horizontal entre imagen y texto
+        display: flex;
+        flex-direction: column;
+        gap: 0.1px;
+      }
+  
+      &-title {
+        font-size: 2rem;
+        margin: 0;
+      }
+    }
+  
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+  
+      ul {
+        display: flex;
+        list-style: none;
+      }
+  
+      li {
+        margin-left: 1.2rem; // separación entre cada item de la lista del header
+      }
+  
+      a {
+        text-decoration: none; // elimina el subrayado por defecto
+        color: #333; // color de la letra
+        font-weight: 600; // grosor de letra
+        transition: color 0.3s; // tiempo de transición
+  
+        &:hover {
+          color: #ff6600; // color al pasar el cursor
+        }
+      }
+  
+      .nav-center {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        list-style: none;
+      }
+  
+      .nav-right {
+        display: flex;
+        align-items: center;
+        list-style: none;
+      }
+    }
+  }
+  
+  /* CAROUSEL */
+  .carouselcontainer {
+    margin: 10px auto;
+    // max-height: 30%; /* AJUSTA ALTURA DE IMAGEN */
+    // object-fit: scale-down;
+  }
+  
+  .d-block {
+    width: 100%;
+    max-height: 300px; // limita la altura máxima
+    object-fit: cover; // o "contain" para mantener las proporciones
+  }
+  
+  /* BANNER */
+  .banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh; // altura del banner
+    overflow: hidden; // para evitar que el video se desborde
+  
+    .banner-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 75vh;
+      object-fit: cover; // video se recorta de manera adecuada
+      z-index: 1; // aparece detrás del contenido
+    }
+  
+    // Si deseas utilizar la capa overlay, descomenta el siguiente bloque:
+    // .banner-overlay {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   background-color: rgba(61, 34, 49, 0.7);
+    //   z-index: 2; // capa por encima del video
+    // }
+  
+    .banner-content {
+      position: absolute;
+      bottom: 10px; // margen inferior ajustable
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #fff; // color del texto
+      padding: 0 1rem;
+      z-index: 3; // contenido sobre la capa oscura
+  
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+  
+      a {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: #ff6600;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: background 0.3s;
+  
+        &:hover {
+          background-color: #e55a00;
+        }
+      }
+    }
+  }
+  
+  /* GALERÍA DE ARTE - cuadros */
+  .art-gallery {
+    padding: 2rem 1rem;
+    background-color: #fafafa;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 700; // equivalente a 'bold'
+      color: #333;
+    }
+  }
+  
+  .art-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px; // ajusta según tus necesidades
+    margin: 0 auto;
+  }
+  
+  .art-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 400px; // al menos 400px
+  
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  
+    h3 {
+      text-align: center;
+      font-size: 1.2rem; // tamaño ajustable
+      font-weight: 700;
+      padding: 10px;
+      background-color: #fff;
+      color: #030303;
+      margin: 0;
+    }
+  }
+  
+  /* TITULO OBRAS DESTACADAS */
+  .obras-destacadas {
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+      position: relative; // para usar ::after
+  
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%; // inicia en la mitad
+        bottom: -5px; // justo debajo del texto
+        width: 300px;
+        height: 1.5px;
+        background-color: #000;
+        transform: translateX(-50%); // centra la línea
+      }
+    }
+  }
+  
+  /* TITULO PAGINA INGRESAR */
+  .ingresar {
+    h2 {
+      text-align: center;
+      padding: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+    }
+  }
+  
+  /* IMÁGENES GLOBALES _del proyecto */
+  img {
+    width: var(--img-width, 100%);
+    height: var(--img-height, auto);
+    max-width: 100%;
+    display: block;
+  }
+  
+  // Clases para modificar el tamaño de las imágenes
+  .img-pequena {
+    --img-width: 150px;
+    --img-height: auto;
+  }
+  
+  .img-mediana {
+    --img-width: 300px;
+    --img-height: auto;
+  }
+  
+  .img-grande {
+    --img-width: 1000px;
+    --img-height: auto;
+  }
+  
+  /* FORMULARIO DE CONTACTO */
+  .contact {
+    padding: 2rem 1rem;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+    }
+  }
+  
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f7f7f7;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+  
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      transition: border 0.3s;
+  
+      &:focus {
+        border-color: #ff6600;
+        outline: none;
+      }
+    }
+  
+    button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #ff6600;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+  
+      &:hover {
+        background-color: #e55a00;
+      }
+    }
+  }
+  
+  /* SECCIÓN DE REGISTRO */
+  .registrarse {
+    padding: 2rem 1rem;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+    }
+  }
+  
+  .register-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f7f7f7;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+  
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      transition: border 0.3s;
+  
+      &:focus {
+        border-color: #ff6600;
+        outline: none;
+      }
+    }
+  
+    button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #ff6600;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+  
+      &:hover {
+        background-color: #e55a00;
+      }
+    }
+  }
+  
+  /* SECCIÓN DE CARRITO */
+  .carrito {
+    padding: 2rem 1rem;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+    }
+  }
+  
+  .carrito-items {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f7f7f7;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  
+    p {
+      font-size: 1rem;
+      color: #666;
+    }
+  }
+  
+  .carrito-total {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: right;
+    padding: 1rem;
+  
+    h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+  
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #ff6600;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+  
+      &:hover {
+        background-color: #e55a00;
+      }
+    }
+  }
+  
+/* FOOTER */
+footer {
+    background: linear-gradient(45deg, #444, #222);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+  
+    .footer-top {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 1.5rem;
+    }
+  
+    .footer-grid {
+      // Por defecto: grid de 2 columnas y 2 filas
+      display: grid;
+      grid-template-columns: 1fr 1fr; // dos columnas
+      grid-template-rows: 1fr 1fr;    // dos filas
+      gap: 1.5rem;
+      text-align: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .footer-section {
+      margin: 0.2rem;
+  
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        position: relative;
+  
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          width: 100%;
+          height: 2px;
+          background-color: #ff6600;
+        }
+      }
+  
+      p,
+      a {
+        font-size: 1rem;
+        color: #ccc;
+        text-decoration: none;
+        line-height: 1.5;
+        text-align: justify;
+      }
+  
+      a {
+        display: block;
+        margin-bottom: 0.6rem;
+  
+        &:hover {
+          color: #ff6600;
+        }
+      }
+    }
+  
+    // Solo para pantallas mayores a 500px: posicionamos las secciones en 2 filas
+    @media (min-width: 501px) {
+      .footer-section:nth-child(1),
+      .footer-section:nth-child(2) {
+        grid-row: 1;
+      }
+    
+      .footer-section:nth-child(3),
+      .footer-section:nth-child(4) {
+        grid-row: 2;
+      }
+    }
+  
+    .footer-bottom {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #aaa;
+    }
+  }
+  
+  /* Para pantallas menores a 500px: se utiliza un layout de una sola columna */
+  @media (max-width: 500px) {
+    footer {
+      .footer-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      // Se elimina cualquier posicionamiento específico de grid
+      .footer-section {
+        grid-row: auto;
+      }
+    }
+  }
+
+  /* MEDIA QUERIES PARA HEADER Y NAV */
+@media (max-width: 1000px) {
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+  
+    body {
+      padding-top: 185px; // ajusta según la altura real del header
+    }
+  
+    header.hide {
+      transform: translateY(-100%);
+    }
+  
+    .logo-img {
+      width: 60px;
+      height: auto;
+    }
+    
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 0.5rem;
+  
+      .nav-center,
+      .nav-right {
+        width: 100%;
+        justify-content: center;
+        margin: 0.5rem 0;
+      }
+    }
+    
+    .banner {
+      height: 50vh;
+    }
+    
+    .banner-content {
+      h1 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.1rem;
+      width: 100%;
+  
+      .nav-center,
+      .nav-right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+  
+      li {
+        text-align: center;
+      }
+    }
+  }

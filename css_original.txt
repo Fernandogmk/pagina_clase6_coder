@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Estilos generales */
 * {
   margin: 0;
@@ -11,91 +10,142 @@ a {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #fff;
+  /*color de fondo de pagina*/
   color: #333333;
+  /*color de letras de nombre de cada obra*/
   line-height: 1.5;
+  /*separacion entre textos o lineas del body*/
 }
 
 /* HEADER */
 header {
   display: flex;
+  /*ajusta las posiciones de la lista en el header*/
   align-items: center;
+  /*centra el listado en el contenedor*/
   justify-content: space-between;
   padding: 0.5rem 2rem;
+  /*con el primer valor se varia la altura de la barra del header*/
   background-color: #f7f7f7;
   border-bottom: 1px solid #e0e0e0;
   position: sticky;
+  /*Hace que el elemento se comporte de manera “relativa” hasta que se cumple la condición de scroll indicada por top 0*/
   top: 0;
+  /*hace que el header quede pegado a la parte superior de la pantalla. La unidad es pixeles ej:50px*/
   z-index: 100;
+  /*Indica la capa (o profundidad) en la que se encuentra el elemento.*/
 }
-header .logo {
+
+/* Contenedor del logo con imagen y textos */
+.logo {
   display: flex;
   flex-direction: row;
+  /* Coloca la imagen a la izquierda y el texto a la derecha */
   align-items: center;
   gap: 20px;
+  /* Espacio entre la imagen y el texto */
   font-weight: 150;
   font-size: 1.8rem;
   color: #333;
 }
-header .logo-img {
+
+/* Imagen del logo */
+.logo-img {
   width: 120px;
+  /* Tamaño del logo */
   height: auto;
 }
-header .logo-text {
+
+/* Contenedor del texto del logo */
+.logo-text {
   text-align: center;
+  /* Centra el texto */
   margin-top: 0.5rem;
+  /* Espacio en la horizontal entre la imagen y el texto */
+}
+
+/* Título "BOKETTO" */
+.logo-title {
+  font-size: 2rem;
+  margin: 0 0 0 0;
+}
+
+/*texto del logo (BOKETTO)*/
+.logo-text {
   display: flex;
   flex-direction: column;
   gap: 0.1px;
+  text-align: center;
 }
-header .logo-title {
-  font-size: 2rem;
-  margin: 0;
-}
-header nav {
+
+
+/* NAVEGACION*/
+nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
-header nav ul {
-  display: flex;
-  list-style: none;
-}
-header nav li {
-  margin-left: 1.2rem;
-}
-header nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-header nav a:hover {
-  color: #ff6600;
-}
-header nav .nav-center {
+
+/* Grupo de enlaces centrales (Inicio, Galería, Contacto, carrito) */
+.nav-center {
   display: flex;
   flex: 1;
   justify-content: center;
   list-style: none;
 }
-header nav .nav-right {
+
+/* Grupo de botones a la derecha (Ingresar, Registrarse) */
+.nav-right {
   display: flex;
   align-items: center;
   list-style: none;
 }
 
-/* CAROUSEL */
+/* Estilos generales para listas y elementos del nav */
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li {
+  margin-left: 1.2rem;
+  /*Separacion entre cada item de la lista del header*/
+}
+
+nav a {
+  text-decoration: none;
+  /*none: elimina el subrayado por defecto*/
+  color: #333;
+  /*color de la letra*/
+  font-weight: 600;
+  /*grosor de letra de la lista del header*/
+  transition: color 0.3s;
+  /*tiempo de transicion del cambio de color de la letra del listado del header */
+}
+
+nav a:hover {
+  color: #ff6600;
+  /*color al que cambia la letra del listado del header*/
+}
+
+/*CAROUSEL*/
+
 .carouselcontainer {
   margin: 10px auto;
+  /*max-height: 30%; /* AJUSTA ALTURA DE IMAGEN */
+  /*object-fit: scale-down;*/
 }
 
 .d-block {
   width: 100%;
   max-height: 300px;
+  /* limita la altura máxima */
   object-fit: cover;
+  /* o "contain" para mantener las proporciones */
+
 }
 
 /* BANNER */
@@ -104,21 +154,51 @@ header nav .nav-right {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75vh;
-  overflow: hidden;
+  height: 75vh; /* Altura del banner */
+  overflow: hidden; /* Para asegurar que el video no se desborde */
 }
-.banner .banner-video {
+
+/* Ajusta el video para que ocupe todo el fondo */
+.banner-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 75vh;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: cover; /* Hace que el video se recorte de manera adecuada */
+  z-index: 1; /* Para que aparezca detrás del contenido */
 }
-.banner .banner-content {
+
+/* Capa semitransparente para oscurecer el video */
+/*.banner-overlay {
+  content: "";
   position: absolute;
-  bottom: 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(61, 34, 49, 0.7);
+  z-index: 2; /* La capa se coloca encima del video */
+
+
+/* Contenido del banner */
+.banner-content {
+  position: relative;
+  z-index: 3; /* El contenido debe quedar encima de la capa oscura */
+  text-align: center;
+  color: #fff; /* Color del texto */
+  padding: 0 1rem;
+}
+
+.banner-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+  position: absolute;
+  bottom: 10px; /* Ajusta el margen inferior según lo necesites */
   left: 0;
   right: 0;
   text-align: center;
@@ -126,12 +206,8 @@ header nav .nav-right {
   padding: 0 1rem;
   z-index: 3;
 }
-.banner .banner-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-.banner .banner-content a {
+
+.banner-content a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   background-color: #ff6600;
@@ -141,7 +217,8 @@ header nav .nav-right {
   font-weight: 600;
   transition: background 0.3s;
 }
-.banner .banner-content a:hover {
+
+.banner-content a:hover {
   background-color: #e55a00;
 }
 
@@ -150,19 +227,22 @@ header nav .nav-right {
   padding: 2rem 1rem;
   background-color: #fafafa;
 }
+
 .art-gallery h2 {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700;   /* 700 es equivalente a 'bold' de word */
   color: #333;
 }
+
+
 
 .art-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 1200px; /* Ajusta este valor según tus necesidades */
   margin: 0 auto;
 }
 
@@ -170,57 +250,64 @@ header nav .nav-right {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 400px;
+  min-height: 400px; /* Al menos 400px */
 }
+
 .art-item img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.3s ease;
 }
-.art-item img:hover {
+
+.art-item:hover img {
   transform: scale(1.05);
 }
+
 .art-item h3 {
   text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.2rem;   /* Ajusta el tamaño a tu gusto */
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   padding: 10px;
   background-color: #fff;
   color: #030303;
   margin: 0;
 }
 
-/* TITULO OBRAS DESTACADAS */
+/* TITULO OBRAS DESTACADAS*/
+
 .obras-destacadas h2 {
-  text-align: center;
+  text-align: center;        /* Centra el texto */
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
-  position: relative;
+  position: relative;        /* Necesario para usar position:absolute en ::after */
 }
+
 .obras-destacadas h2::after {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: -5px;
+  left: 50%;                 /* La pseudo-línea inicia en la mitad del elemento */
+  bottom: -5px;              /* Ubícala justo debajo del texto */
   width: 300px;
   height: 1.5px;
   background-color: #000;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* Ajuste para centrarla exactamente */
 }
 
-/* TITULO PAGINA INGRESAR */
+
+/* TITULO PAGINA INGRESAR*/
 .ingresar h2 {
   text-align: center;
   padding: 1rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
-/* IMÁGENES GLOBALES _del proyecto */
+
+/* IMÁGENES GLOBALES _del proyecto*/
 img {
   width: var(--img-width, 100%);
   height: var(--img-height, auto);
@@ -228,6 +315,7 @@ img {
   display: block;
 }
 
+/* Clases para modificar el tamaño de las imágenes */
 .img-pequena {
   --img-width: 150px;
   --img-height: auto;
@@ -247,11 +335,12 @@ img {
 .contact {
   padding: 2rem 1rem;
 }
+
 .contact h2 {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
@@ -263,12 +352,14 @@ img {
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .contact-form label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #333;
 }
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -279,11 +370,13 @@ img {
   font-size: 1rem;
   transition: border 0.3s;
 }
+
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #ff6600;
   outline: none;
 }
+
 .contact-form button {
   display: block;
   width: 100%;
@@ -296,22 +389,27 @@ img {
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .contact-form button:hover {
   background-color: #e55a00;
 }
 
-/* SECCIÓN DE REGISTRO */
+/* ----------------- SECCIÓN DE REGISTRO ------------------*/
+
+
 .registrarse {
   padding: 2rem 1rem;
 }
+
 .registrarse h2 {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
+/* Formulario de registro */
 .register-form {
   max-width: 600px;
   margin: 0 auto;
@@ -320,12 +418,14 @@ img {
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .register-form label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #333;
 }
+
 .register-form input {
   width: 100%;
   padding: 0.75rem;
@@ -335,10 +435,13 @@ img {
   font-size: 1rem;
   transition: border 0.3s;
 }
+
 .register-form input:focus {
   border-color: #ff6600;
+  /* mismo color que usas en los hover */
   outline: none;
 }
+
 .register-form button {
   display: block;
   width: 100%;
@@ -351,22 +454,26 @@ img {
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .register-form button:hover {
   background-color: #e55a00;
 }
 
-/* SECCIÓN DE CARRITO */
+/* ------ SECCIÓN DE CARRITO -------- */
+
 .carrito {
   padding: 2rem 1rem;
 }
+
 .carrito h2 {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 700;   /* 700 es equivalente a 'bold' */
   color: #333;
 }
 
+/* Contenedor de los items en el carrito */
 .carrito-items {
   max-width: 600px;
   margin: 0 auto;
@@ -376,22 +483,26 @@ img {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
 }
+
 .carrito-items p {
   font-size: 1rem;
   color: #666;
 }
 
+/* Sección de total y botón de finalizar */
 .carrito-total {
   max-width: 600px;
   margin: 0 auto;
   text-align: right;
   padding: 1rem;
 }
+
 .carrito-total h3 {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   color: #333;
 }
+
 .carrito-total button {
   padding: 0.75rem 1.5rem;
   background-color: #ff6600;
@@ -402,45 +513,52 @@ img {
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .carrito-total button:hover {
   background-color: #e55a00;
 }
+
 
 /* FOOTER */
 footer {
   background: linear-gradient(45deg, #444, #222);
   color: #fff;
   padding: 1rem 1.5rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-footer .footer-top {
+
+.footer-top {
   display: flex;
   flex-wrap: nowrap;
+  /* Para que las secciones queden en una misma línea */
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 1.5rem;
 }
-footer .footer-grid {
+
+.footer-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* tamaño de las imágenes */
   gap: 1.5rem;
-  text-align: center;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
-footer .footer-section {
+
+.footer-section {
+  flex: 1;
   margin: 0.2rem;
 }
-footer .footer-section h4 {
+
+.footer-section h4 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   position: relative;
 }
-footer .footer-section h4::after {
+
+.footer-section h4::after {
   content: "";
   position: absolute;
   left: 0;
@@ -449,51 +567,38 @@ footer .footer-section h4::after {
   height: 2px;
   background-color: #ff6600;
 }
-footer .footer-section p,
-footer .footer-section a {
+
+.footer-section p,
+.footer-section a {
   font-size: 1rem;
+  /* Tamaño de letra del footer */
   color: #ccc;
   text-decoration: none;
   line-height: 1.5;
   text-align: justify;
 }
-footer .footer-section a {
+
+.footer-section a {
   display: block;
   margin-bottom: 0.6rem;
+  /* Separación entre enlaces */
 }
-footer .footer-section a:hover {
+
+.footer-section a:hover {
   color: #ff6600;
 }
-@media (min-width: 501px) {
-  footer .footer-section:nth-child(1),
-  footer .footer-section:nth-child(2) {
-    grid-row: 1;
-  }
-  footer .footer-section:nth-child(3),
-  footer .footer-section:nth-child(4) {
-    grid-row: 2;
-  }
-}
-footer .footer-bottom {
+
+.footer-bottom {
   text-align: center;
   margin-top: 1rem;
   font-size: 1rem;
   color: #aaa;
 }
 
-/* Para pantallas menores a 500px: se utiliza un layout de una sola columna */
-@media (max-width: 500px) {
-  footer .footer-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-  footer .footer-section {
-    grid-row: auto;
-  }
-}
-/* MEDIA QUERIES PARA HEADER Y NAV */
+
+/*---------- MEDIA QUERIES -------*/
+
+/* MEDIA QUERIES PARA pantallas chicas  */
 @media (max-width: 1000px) {
   header {
     position: fixed;
@@ -505,16 +610,22 @@ footer .footer-bottom {
     align-items: center;
     padding: 0.5rem 1rem;
   }
+
   body {
-    padding-top: 185px;
+    padding-top: 185px; /* Ajusta según la altura real del header */
   }
+
+  /* Header oculto cuando tiene la clase .hide */
   header.hide {
     transform: translateY(-100%);
   }
+
+  /* Ajustes generales en navegación */
   .logo-img {
     width: 60px;
     height: auto;
   }
+  
   nav {
     display: flex;
     flex-direction: column;
@@ -522,22 +633,41 @@ footer .footer-bottom {
     width: 100%;
     margin-top: 0.5rem;
   }
-  nav .nav-center,
-  nav .nav-right {
+
+  .nav-center,
+  .nav-right {
     width: 100%;
     justify-content: center;
     margin: 0.5rem 0;
   }
+
+  nav li {
+    margin: 0 0.5rem;
+  }
+
+  /* Ajustes en el banner */
   .banner {
     height: 50vh;
   }
+
   .banner-content h1 {
     font-size: 1.8rem;
   }
+
   .banner-content p {
     font-size: 1rem;
   }
+
+  /* Footer en una sola columna */
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
 }
+
+/* Ajuste específico para menos de 400px */
 @media (max-width: 400px) {
   nav {
     display: grid;
@@ -545,16 +675,42 @@ footer .footer-bottom {
     gap: 0.1rem;
     width: 100%;
   }
-  nav .nav-center,
-  nav .nav-right {
+
+  /* Ajustamos la disposición del contenido de la navegación */
+  .nav-center,
+  .nav-right {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
   }
+
+  /* Centramos los elementos del nav */
   nav li {
     text-align: center;
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+/* Ajuste del footer entre 1200px y 501px (2 filas) */
+@media (max-width: 1200px) and (min-width: 501px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    grid-template-rows: 1fr 1fr; /* Dos filas */
+    gap: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Primera fila: Sobre Nosotros y Enlaces Rápidos */
+  .footer-section:nth-child(1),
+  .footer-section:nth-child(2) {
+    grid-row: 1;
+  }
+
+  /* Segunda fila: Redes Sociales y Contacto */
+  .footer-section:nth-child(3),
+  .footer-section:nth-child(4) {
+    grid-row: 2;
+  }
+}
