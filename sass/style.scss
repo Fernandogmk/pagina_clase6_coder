@@ -471,8 +471,7 @@
     .footer-grid {
       // Por defecto: grid de 2 columnas y 2 filas
       display: grid;
-      grid-template-columns: 1fr 1fr; // dos columnas
-      grid-template-rows: 1fr 1fr;    // dos filas
+      grid-template-rows: 1fr;    // una filas
       gap: 1.5rem;
       text-align: center;
       width: 100%;
@@ -608,6 +607,20 @@
         font-size: 1rem;
       }
     }
+
+    .footer-grid {
+      // Por defecto: grid de 2 columnas y 2 filas
+      display: grid;
+      grid-template-columns: 1fr 1fr; // dos columnas
+      grid-template-rows: 1fr 1fr;    // dos filas
+      gap: 1.5rem;
+      text-align: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
   }
   
   /* Media query para pantallas menores a 400px */
