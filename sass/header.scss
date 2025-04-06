@@ -1,0 +1,117 @@
+/* HEADER */
+header {
+    display: flex;
+    // ajusta las posiciones de la lista en el header
+    align-items: center; // centra el listado en el contenedor
+    justify-content: space-between;
+    padding: 0.5rem 2rem; // con el primer valor se varía la altura de la barra del header
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky; // se comporta de forma “relativa” hasta que se cumple la condición de scroll indicada por top 0
+    top: 0; // header queda pegado a la parte superior
+    z-index: 100; // indica la capa en la que se encuentra el elemento
+  
+    .logo {
+      display: flex;
+      flex-direction: row; // imagen a la izquierda y texto a la derecha
+      align-items: center;
+      gap: 20px; // espacio entre imagen y texto
+      font-weight: 150;
+      font-size: 1.8rem;
+      color: #333;
+  
+      &-img {
+        width: 100px; // tamaño del logo
+        height: auto;
+      }
+  
+      &-text {
+        text-align: center; // centra el texto
+        margin-top: 0.5rem; // espacio entre imagen y texto
+        display: flex;
+        flex-direction: column;
+        gap: 0.1px;
+      }
+  
+      &-title {
+        font-size: 2rem;
+        margin: 0;
+      }
+    }
+  
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+  
+      ul {
+        display: flex;
+        list-style: none;
+      }
+  
+      li {
+        margin-left: 1.2rem; // separación entre cada item de la lista del header
+      }
+  
+      a {
+        text-decoration: none; // elimina el subrayado por defecto
+        color: #333; // color de la letra
+        font-weight: 600; // grosor de letra
+        transition: color 0.3s; // tiempo de transición
+  
+        &:hover {
+          color: #ff6600; // color al pasar el cursor
+        }
+      }
+  
+      .nav-center {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        list-style: none;
+      }
+  
+      .nav-right {
+        display: flex;
+        align-items: center;
+        list-style: none;
+      }
+    }
+  }
+  
+  /* Media queries para header */
+  @media (max-width: 1000px) {
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.1rem;
+      width: 100%;
+  
+      .nav-center,
+      .nav-right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+  
+      li {
+        text-align: center;
+      }
+    }
+  }
+  

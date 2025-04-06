@@ -1,0 +1,43 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 1px;
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    // color de fondo de página
+    color: #333333; // color de letras de nombre de cada obra
+    line-height: 1.5; // separación entre textos o líneas del body
+  }
+  
+  /* IMÁGENES GLOBALES del proyecto */
+  img {
+    width: var(--img-width, 100%);
+    height: var(--img-height, auto);
+    max-width: 100%;
+    display: block;
+  }
+  
+  // Clases para modificar el tamaño de las imágenes
+  .img-pequena {
+    --img-width: 150px;
+    --img-height: auto;
+  }
+  
+  .img-mediana {
+    --img-width: 300px;
+    --img-height: auto;
+  }
+  
+  .img-grande {
+    --img-width: 1000px;
+    --img-height: auto;
+  }
+  
